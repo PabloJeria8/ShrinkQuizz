@@ -1,8 +1,10 @@
 package cl.empresapjm.shrinkquizz;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,9 +83,24 @@ public class MatchFragment extends Fragment {
             public void onClick(View view) {
                 int user = userSb.getProgress();
                 int lover = loverSb.getProgress();
+
+                showDialog(user,lover);
+
+            }
+        });
+    }
+
+    private void showDialog(int myago, int myagocouply){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle("Mi Estado");
+        alertDialog.setMessage(new MatchResult(myago, myagocouply).calulate());
+        alertDialog.setPositiveButton("EDAD ACEPTADA!!!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
             }
         });
 
-
+        alertDialog.show();
     }
 }

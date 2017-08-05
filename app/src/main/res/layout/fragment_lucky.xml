@@ -15,18 +15,19 @@
 
     <CheckBox
         android:id="@+id/moodCb"
-        android:layout_below="@+id/happyCb"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:button="@drawable/cb_mood_bg"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:layout_below="@+id/happyCb"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/luckyBtn"
         android:layout_marginBottom="54dp"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Resultado"/>
 
 </RelativeLayout>

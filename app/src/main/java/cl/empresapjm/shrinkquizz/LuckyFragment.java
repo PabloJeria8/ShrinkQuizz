@@ -1,9 +1,11 @@
 package cl.empresapjm.shrinkquizz;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +54,22 @@ public class LuckyFragment extends Fragment {
                 boolean answer = mood.isChecked();
                 Log.d("ANSWER",  String.valueOf(answer));
 
+                showDialog(answer);
             }
         });
+    }
+
+    private void showDialog(boolean answer){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle("Mi Estado");
+        alertDialog.setMessage(new LuckyResult(answer).result());
+        alertDialog.setPositiveButton("LO HARE!!!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.show();
     }
 }
