@@ -1,6 +1,7 @@
 package cl.empresapjm.shrinkquizz;
 
 
+
 public class LuckyResult extends LuckyAnswer {
 
 
